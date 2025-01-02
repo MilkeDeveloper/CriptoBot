@@ -121,7 +121,7 @@ def run_every_60_seconds():
             detect_arbitrage(
                 price_bybit=get_btc_price_bybit(),  # Preço na Bybit em USD
                 price_coinext=get_btc_price_coinext(),  # Preço na Coinext em USD
-                fees_percent=0.75  # Taxas totais estimadas (1%)
+                fees_percent=0.50  # Taxas totais estimadas (1%)
             )
 
             # Aguarda 60 segundos antes de rodar novamente
