@@ -39,8 +39,8 @@ headers = {
 
 # Configuração do proxy
 proxies = {
-    "http": "http://3.127.62.252:80",  # Para conexões HTTP
-    "http": "http://3.127.62.252:80"  # Para conexões HTTPS
+    "http": "http://18.228.149.161:80",  # Para conexões HTTP
+    "http": "http://18.228.149.161:80"  # Para conexões HTTPS
 }
 
 # Função para capturar o preço do BTC em tempo real
