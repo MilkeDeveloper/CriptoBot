@@ -38,7 +38,7 @@ headers = {
 }
 
 # Requisição
-
+url = f"https://api.bybit.com{endpoint}?{query_string}"
 
 # Função para capturar o preço do BTC em tempo real
 def get_btc_price_bybit():
@@ -53,7 +53,7 @@ def get_btc_price_bybit():
 
 
     try:
-        response = requests.get(base_url + endpoint, headers=headers, params=params)
+        response = requests.get(url)
         response.raise_for_status()  # Levanta um erro para códigos HTTP >= 400
 
         data = response.json()
