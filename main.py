@@ -4,13 +4,15 @@
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+from api_test import run_every_60_seconds
 
+def main():
+    # Seu código Python aqui (bot, API, etc)
+    print("Bot está rodando...")
+    # Adicione o código para o seu bot enviar notificações, por exemplo
+    run_every_60_seconds()
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+if __name__ == "__main__":
+    main()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
