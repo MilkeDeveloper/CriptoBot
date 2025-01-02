@@ -12,8 +12,15 @@ def get_btc_price_bybit():
     """
     url = "https://api.bybit.com/v5/market/tickers"
 
+    headers = {
+        "User-Agent": "MyApp/1.0",
+    }
+
+    response = requests.get(url, headers=headers)
+    print(response.json())
+
     try:
-        response = requests.get(url, params={"category": "spot", "symbol": "BTCUSDT"})
+        response = requests.get(url, headers=headers, params={"category": "spot", "symbol": "BTCUSDT"})
         response.raise_for_status()  # Levanta um erro para códigos HTTP >= 400
 
         data = response.json()
