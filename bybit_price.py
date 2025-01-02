@@ -17,8 +17,6 @@ def get_btc_price_bybit():
         "Accept": "application/json"
     }
 
-    response = requests.get(url, headers=headers)
-    print(response.json())
 
     try:
         response = requests.get(url, params={"category": "spot", "symbol": "BTCUSDT"})
