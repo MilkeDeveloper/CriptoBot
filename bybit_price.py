@@ -39,8 +39,8 @@ headers = {
 
 # Configuração do proxy
 proxies = {
-    "http": "http://13.36.113.81:3128",  # Para conexões HTTP
-    "http": "https://13.36.113.81:3128"  # Para conexões HTTPS
+    "http": "http://3.127.62.252:80",  # Para conexões HTTP
+    "http": "http://3.127.62.252:80"  # Para conexões HTTPS
 }
 
 # Função para capturar o preço do BTC em tempo real
@@ -57,8 +57,8 @@ def get_btc_price_bybit():
 
     try:
 
-        #p_response = requests.get("https://api64.ipify.org?format=json", proxies=proxies, timeout=10)
-        #print("Resposta do Proxy:", p_response.text)
+        p_response = requests.get("https://api64.ipify.org?format=json", proxies=proxies, timeout=10)
+        print("Resposta do Proxy:", p_response.text)
 
         response = requests.get(base_url + endpoint, headers=headers, params=params, proxies=proxies, timeout=10)
         response.raise_for_status()  # Levanta um erro para códigos HTTP >= 400
