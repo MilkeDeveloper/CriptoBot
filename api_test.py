@@ -68,11 +68,11 @@ def detect_arbitrage(price_bybit, price_coinext, fees_percent):
 
             if difference_percent - fees_percent > minimum_percentage:
 
-                message = f"Oportunidade de arbitragem: Compre na Coinext por ${price_coinext} e venda na Bybit por ${price_bybit}.\nLucro estimado: {difference_percent - fees_percent:.2f}%"
+                message = f"Oportunidade de arbitragem: Compre BTC na Coinext por ${price_coinext} e venda na Bybit por ${price_bybit}.\nLucro estimado: {difference_percent - fees_percent:.2f}%"
                 send_telegram_message(message, telegram_api_key, telegram_chat_id)
 
                 print(
-                    f"Arbitragem disponível! Compre na Coinext à (${price_coinext}) e venda na Bybit à (${price_bybit}).")
+                    f"Arbitragem disponível! Compre BTC na Coinext à (${price_coinext}) e venda na Bybit à (${price_bybit}).")
                 print(f"Lucro estimado: {difference_percent - fees_percent:.2f}%")
 
             else:
@@ -83,11 +83,11 @@ def detect_arbitrage(price_bybit, price_coinext, fees_percent):
 
             if difference_percent - fees_percent > minimum_percentage:
 
-                message = f"Oportunidade de arbitragem: Compre na Bybit por ${price_bybit} e venda na Coinext por ${price_coinext}.\nLucro estimado: {difference_percent - fees_percent:.2f}%"
+                message = f"Oportunidade de arbitragem: Compre na BTC Bybit por ${price_bybit} e venda na Coinext por ${price_coinext}.\nLucro estimado: {difference_percent - fees_percent:.2f}%"
                 send_telegram_message(message, telegram_api_key, telegram_chat_id)
 
                 print(
-                    f"Arbitragem disponível! Compre na Bybit à (${price_bybit}) e venda na Coinext à (${price_coinext}).")
+                    f"Arbitragem disponível! Compre BTC na Bybit à (${price_bybit}) e venda na Coinext à (${price_coinext}).")
                 print(f"Lucro estimado: {difference_percent - fees_percent:.2f}%")
 
             else:

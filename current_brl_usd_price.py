@@ -37,8 +37,8 @@ headers = {
 
 # Configuração do proxy
 proxies = {
-    "http": "http://38.9.141.250:10609",  # Para conexões HTTP
-    "https": "http://38.9.141.250:10609"  # Para conexões HTTPS
+    "http": "http://200.174.198.86:8888",  # Para conexões HTTP
+    "https": "http://200.174.198.86:8888"  # Para conexões HTTPS
 }
 
 # Função para capturar o preço do USDT/BRL em tempo real
