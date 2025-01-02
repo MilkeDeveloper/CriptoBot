@@ -14,6 +14,7 @@ def get_btc_price_bybit():
 
     headers = {
         "User-Agent": "MyApp/1.0",
+        "Accept": "application/json"
     }
 
     response = requests.get(url, headers=headers)
