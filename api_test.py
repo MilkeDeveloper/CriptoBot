@@ -2,9 +2,16 @@
 import time
 import pytz
 import requests
+import os
 from datetime import datetime
 from bybit_price import get_btc_price_bybit
 from coinext_price import get_btc_price_coinext
+from dotenv import load_dotenv
+
+load_dotenv()
+
+telegram_api_key = os.getenv('TELEGRAM_API_TOKEN')
+telegram_chat_id = os.getenv('CHAT_ID')
 
 minimum_percentage = 1.0
 delay_time = 60
@@ -61,8 +68,8 @@ def detect_arbitrage(price_bybit, price_coinext, fees_percent):
 
             if difference_percent - fees_percent > minimum_percentage:
 
-                message = f"Oportunidade de arbitragem: Compre na Bybit por ${price_bybit} e venda na Coinext por ${price_coinext}.\nLucro estimado: {difference_percent - fees_percent:.2f}%"
-                send_telegram_message(message, '7290987587:AAGo35BiXUuxOzW9Iv9zHOKNgrXpJ5WE94M', '7731934472')
+                message = f"Oportunidade de arbitragem: Compre na Coinext por ${price_coinext} e venda na Bybit por ${price_bybit}.\nLucro estimado: {difference_percent - fees_percent:.2f}%"
+                send_telegram_message(message, telegram_api_key, telegram_chat_id)
 
                 print(
                     f"Arbitragem disponível! Compre na Coinext à (${price_coinext}) e venda na Bybit à (${price_bybit}).")
@@ -75,6 +82,10 @@ def detect_arbitrage(price_bybit, price_coinext, fees_percent):
             difference_percent = ((price_coinext - price_bybit) / price_bybit) * 100
 
             if difference_percent - fees_percent > minimum_percentage:
+
+                message = f"Oportunidade de arbitragem: Compre na Bybit por ${price_bybit} e venda na Coinext por ${price_coinext}.\nLucro estimado: {difference_percent - fees_percent:.2f}%"
+                send_telegram_message(message, telegram_api_key, telegram_chat_id)
+
                 print(
                     f"Arbitragem disponível! Compre na Bybit à (${price_bybit}) e venda na Coinext à (${price_coinext}).")
                 print(f"Lucro estimado: {difference_percent - fees_percent:.2f}%")
@@ -117,6 +128,3 @@ def run_every_60_seconds():
             time.sleep(delay_time)
     except KeyboardInterrupt:
         print("\nExecução interrompida pelo usuário.")
-
-# Inicia o loop
-run_every_60_seconds()
